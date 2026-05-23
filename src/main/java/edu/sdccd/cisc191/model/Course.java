@@ -7,26 +7,37 @@ public class Course {
 
     public Course(int id, String title, int studentId) {
         // TODO validate fields and assign them
-    }
+        if (id <= 0) {
+            throw new IllegalArgumentException("Invalid course id");
+        }
 
-    public int getId() {
-        // TODO
-        return 0;
-    }
+        if (title == null || title.isBlank()) {
+            throw new IllegalArgumentException("Invalid title");
+        }
 
-    public String getTitle() {
-        // TODO
-        return null;
-    }
+        if (studentId <= 0) {
+            throw new IllegalArgumentException("Invalid student id");
+        }
 
-    public int getStudentId() {
-        // TODO
-        return 0;
-    }
+            this.id = id;
+            this.title = title;
+            this.studentId = studentId;
+        }
 
-    @Override
-    public String toString() {
-        // TODO
-        return "";
+        public int getId () {
+            return id;
+        }
+
+        public String getTitle () {
+            return title;
+        }
+
+        public int getStudentId () {
+            return studentId;
+        }
+
+        @Override
+        public String toString () {
+            return "Course{id=" + id + ", title='" + title + '\'' + ", studentId=" + studentId + '}';
+        }
     }
-}
