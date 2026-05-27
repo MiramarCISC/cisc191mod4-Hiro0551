@@ -26,7 +26,7 @@ public class JdbcCourseRepository implements CourseRepository {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+          throw new RuntimeException("failed ")
         }
     }
 
@@ -44,14 +44,13 @@ public class JdbcCourseRepository implements CourseRepository {
 
             ResultSet rs = stmt.executeQuery();
 
-            while (rs.next()) {
+            private Course mapRow(ResultSet rs) throws SQLException {
                 courses.add(new Course(
-                        rs.getInt("id"),
-                        rs.getString("title"),
-                        rs.getInt("student_id")
+                     courses.add(mapRow(rs));
+
                 ));
             }
-
+          
         } catch (SQLException e) {
             e.printStackTrace();
         }
